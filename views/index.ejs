@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head >
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="resources/css/index.css" >
+        <title>DBA24 </title>
+        <link rel="icon" href="https://dba24.com.ar/wp-content/uploads/2021/06/favicon.png">
+    </head>
+    <body>
+        medicas34
+        martindba24
+    <center class="centro">    
+        <div class="container">
+            <form action="auth" method="POST">
+                <div class="card">
+                <div class="card-body">
+                    <img src="https://dba24.com.ar/wp-content/uploads/2022/06/admin-ajax-min.png">
+                    <br>
+                    <input id="user" type="text" name="user" class="form-control mt-2" placeholder="Ingrese Usuario" required>
+                    <br>
+                    <input id="pass"type="password" name="pass" class="form-control mt-2"  placeholder="Ingrese Clave" required>
+                    <br>
+                    <input type="submit" class="btn-login" ID="boton" value="Ingresar ">
+                    <br>
+                </div>
+            </div>
+            </form>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+            <% if (typeof alert != "undefined")  { %>
+            <script>
+              Swal.fire({
+              title:'<%= alertTitle %>',
+              text:'<%= alertMessage %>',
+              icon:'<%= alertIcon %>',
+              showConfirmButton: <%= showConfirmButton %>,
+              timer: <%= timer %>
+              }).then(()=>{
+              window.location='/<%=  %>'
+              })
+            </script>
+            <% } %>
+        </div>
+    </center>
+</body>
+</html>

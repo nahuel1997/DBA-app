@@ -1,0 +1,159 @@
+.fondo{
+    background-color: white;
+    border-radius: 16px 16px 0px 0px;
+    width: 80%;
+    margin-left: 10%;
+    color:#6EC1E4;
+    margin-bottom: -21px;
+    }
+.logo{
+    margin-left: 35%;
+    }
+.fecha1{
+    margin-left: 30%;
+    width: 50px;
+    }  
+.fecha2{
+    width: 50px;
+    }  
+.fecha3{
+    width: 50px;
+    margin-left: 20px;
+    }  
+th{
+   color:#61CE70;
+    }
+tr {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+ 
+    }
+.base {
+    border: 1px solid grey;
+    }
+.container{
+     overflow-y: scroll !important; 
+    max-height: 500px !important;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: 10%;
+    background-color: white;
+     }
+.espacio{
+    margin-top: -30px;
+    border-radius: 0px 0px 10px 10px !important;
+    height: 100px !important;
+    background-color: white;
+    width: 80%;
+    margin-left: 10%;
+     }     
+.datos1{
+    width: 20%;
+    margin-left: 15%;
+    margin-top: 100px;
+     }     
+.datos2{
+    margin-left: 5%;
+    } 
+body {
+    font-size: 16px;
+    font-family: monospace;
+    background-color:#6EC1E4 ;
+     }
+.filtros{
+    margin-bottom: 10px; 
+    margin-left:10% ;    
+     }  
+/* table{
+    padding: 0px 15px 13px 15px;
+ } */
+ .titulo{
+    margin-left:40% ;  
+    }
+    
+scroll{
+    overflow: hidden;
+    overflow-y: scroll;
+    }
+
+.PDF {
+    margin: 30px 0px 0px 90%;
+}
+div#tablaArticulos_length {
+    margin-left: 155px;
+    margin-top: -43px;
+    width: 50%;
+    color: #6EC1E4;
+    position: absolute;
+}div#tablaArticulos_filter {
+    margin-top: -45px;
+    margin-left: 570px;
+    margin-bottom: 21px;
+    color: #6EC1E4;
+    position: absolute;
+}
+div#tablaArticulos_info {
+    visibility: collapse;
+}::marker {
+    color: white;
+}a.page-link {
+    color: white;
+    text-decoration: none;
+    border: 1px solid #6EC1E4;
+    border-radius: 6px;
+    background: #6EC1E4;
+}li.paginate_button.page-item.active a {
+    color: black;
+    background: white;
+    border: none;
+}li#tablaArticulos_previous a {
+    padding: 5px 10px 5px 10px;
+    visibility: visible;
+}li#tablaArticulos_next {
+    visibility: visible;
+}li.paginate_button.page-item.active {
+    margin-top: -16px;
+    margin-left: 120px;
+}li#tablaArticulos_next a {
+    padding: 5px 25px 5px 25px;
+ }li.paginate_button.page-item {
+    visibility: collapse;
+} ul.pagination {
+    display: inline-flex;
+}
+.col-sm-12.col-md-5 {
+    visibility: collapse;
+    position: absolute;
+}div#tablaArticulos2_length {
+    visibility: collapse;
+    position: absolute;
+}div#tablaArticulos2_filter {
+    position: absolute;
+    visibility: collapse;
+}table#tablaArticulos2 {
+    width: 100% !important;
+    margin-left: 262px;
+    margin-top: -24px;
+}table#tablaArticulos2 td:nth-child(4) {
+    margin-left: 171px;
+    margin-right: -111px;
+    width: 90px;
+}table#tablaArticulos2 td:nth-child(2) {
+    margin-left: 32px;
+}table#tablaArticulos2 td:nth-child(3) {
+    margin-left: 50px;
+}
+spam#datos3 {
+    margin-left: 45px;
+}spam#datos4 {
+    margin-left: 114px;
+}td.table_alertHistory_issueType {
+    color: black;
+}td.dataTables_empty {
+    /* align-items: center; */
+    margin-left: 334px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    width: 500px;
+}

@@ -1,0 +1,227 @@
+.espacio2{
+    padding-top: 30px;
+}
+.total {
+    margin-left: 1000px;
+}
+.fondo2{
+    background-color: white;
+    width: 80%;
+    margin-left: 10%;
+    color:#6EC1E4;
+    margin-bottom: -21px;
+}
+.fondo{
+    background-color: white;
+    border-radius: 16px 16px 0px 0px;
+    width: 80%;
+    margin-left: 10%;
+    color:#6EC1E4;
+    margin-bottom: -21px;
+    }
+.logo{
+    margin-left: 35%;
+    }
+.fecha1{
+    margin-left: 92px;
+    width: 50px;
+    }  
+.fecha2{
+    width: 50px;
+    }  
+.fecha3{
+    width: 50px;
+    margin-left: 20px;
+    }  
+th{
+   color:#61CE70;
+    }
+tr {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+ 
+    }
+.base {
+    border: 1px solid grey;
+    }
+.container{
+    overflow-y: scroll !important;
+    max-height: 500px !important;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: 10%;
+    background-color: white;
+     }
+.espacio{
+    border-radius: 0px 0px 10px 10px !important;
+    height: 100px !important;
+    background-color: white;
+    width: 80%;
+    margin-left: 10%;
+     }     
+.datos1{
+    width: 20%;
+    margin-left: 15%;
+    margin-top: 100px;
+     }     
+.datos2{
+    margin-left: 5%;
+    } 
+body {
+    font-size: 16px;
+    font-family: monospace;
+    background-color:#6EC1E4 ;
+     }
+.filtros{
+    margin-bottom: 10px; 
+    margin-left:30% ;    
+     }  
+     table {
+        padding: 0px 0px 0px 5%;
+    }
+ .titulo{
+    margin-left:40% ;  
+    }
+scroll{
+    overflow: hidden;
+    overflow-y: scroll;
+    }
+
+.PDF {
+    margin: 26px 0px 10px 1232px;
+} table#tablaDatos {
+    width: 100% !important;
+}
+
+div#tablaDatos_filter {
+    margin-top: -50px;
+    position: absolute;
+    margin-left: 319px;
+    color:#61CE70;
+}div#tablaDatos_length {
+    margin-top: -50px;
+    position: absolute;
+    margin-left: 100px;
+    color:#61CE70;
+}div#tablaDatos_info {
+    visibility: collapse;
+    position: absolute;
+}li#tablaDatos_previous {
+    visibility: visible;
+}li#tablaDatos_next {
+    visibility: visible;
+    margin-left: 120px;
+}li.paginate_button.page-item {
+    visibility: collapse;
+    /* position: absolute; */
+}a.page-link {
+    color: white;
+    text-decoration: none;
+    border: 1px solid #6EC1E4;
+    border-radius: 6px;
+    background: #6EC1E4;
+    padding: 5px;
+}::marker {
+    color: white;
+}li#tablaDatos_next a.page-link {
+    padding: 6px 19px 6px 19px;
+}th.text-center.sorting {
+    padding-left: 41px !important;
+}th.sorting_asc {
+    padding-left: 41px !important;
+}th.text-center.sorting_desc {
+    padding-left: 39px !important;
+}th.sorting {
+    padding-left: 39px !important;
+}input.buscador {
+    margin-bottom: 17px;
+    margin-left: 122px;
+}
+
+td {
+    margin-left: 42px;
+    /* width: 91%; */
+    /* margin-left: 63px; */
+}td.dt-checkboxes-cell {
+    margin-left: 0px;
+}p {
+    display: inline;
+    color: #61CE70;
+}p.texto-inicio {
+    color: #61CE70;
+    margin-left: 139px;
+}p.texto {
+    margin-left: 93px;
+}div#agregar2 {
+    margin-left: 87px;
+}input#caja1 {
+    width: 153px;
+}input#seleccionado2 {
+    visibility: collapse;
+    position: absolute;
+}input#seleccionado {
+    visibility: collapse;
+    position: absolute;
+}input.imagen3 {
+    margin-bottom: -26px;
+    margin-left: 957px;
+}ul.pagination {
+    display: inline-flex;
+}input#idTabla {
+    visibility: collapse;
+    position: absolute;
+}button.eliminar {
+    margin-right: 5px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #6EC1E4;
+    border-radius: 6px;
+    padding: 0px 3px;
+    background: #6EC1E4;
+}button.editar {
+    margin-right: 5px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid #6EC1E4;
+    border-radius: 6px;
+    padding: 0px 3px;
+    background: #6EC1E4;
+}
+button {
+    color: white;
+    text-decoration: none;
+    border: 1px solid #6EC1E4;
+    border-radius: 6px;
+    padding: 0px 12px;
+    background: #6EC1E4;
+}.botones {
+    display: inline-flex;
+}form {
+    margin-left: 4px;
+}dialog#modal {
+    z-index: 10;
+    margin-top: 308px;
+    padding: 10px 150px 10px 150px;
+    border: solid 1px;
+    /* position: absolute; */
+}form {
+    margin-left: 83px;
+ }div#Total_info {
+    visibility: collapse;
+}td.sorting_1 {
+    margin-top: -64px;
+    margin-left: 1110px;
+}div#Total_length {
+    visibility: collapse;
+}div#Total_filter {
+    visibility: collapse;
+}table {
+    padding: 0px 0px 0px 0px;
+}input#idTabla2 {
+    visibility: collapse;
+    position: absolute;
+}input#consultorTabla {
+    visibility: collapse;
+    position: absolute;
+}

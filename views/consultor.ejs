@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="resources/css/consultor.css" rel="stylesheet" type="text/css"/> 
+        <title>DBA24 Consultores</title>
+        <link rel="icon" href="https://dba24.com.ar/wp-content/uploads/2021/06/favicon.png">
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.6.2.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
+        <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+    </head>
+    <body>        
+        <dialog id="modal">
+            <p>Estas seguro de borrar ?</p>
+            <br><br>
+            <div class="botones">
+            <button>
+                <label  type="" src=""  id="btn-cerrar-modal" class="imagen30" name="btn-cerrar1" value="" >Cerrar</label>
+            </button>
+            <form action="borrar" method="POST"> 
+                <input id="idTabla" name="idTabla" class="idTabla"></input>
+                <button>
+                    <label  type="text" src=""  id="btn-borrar-modal" class="imagen30" name="btn-borrar1" value="" ></label>Borrar
+                </button>
+            </form> 
+        </div>
+        </dialog>
+        <dialog id="modal2">
+            <p>Estas seguro que desea editar ?</p>
+            <br><br>
+            <div class="botones">
+            <button>
+                <label  type="" src=""  id="btn-cerrar-modal2" class="imagen30" name="btn-cerrar1" value="" >Cerrar</label>
+            </button>
+            <form action="editar" method="POST"> 
+                <input id="idTabla2" name="idTabla2" class="idTabla2"></input>
+                <input id="fechaTabla" name="fechaTabla" class="fechaTabla"></input>
+                <input id="horaTabla1" name="horaTabla1" class="horaTabla1"></input>
+                <input id="horaTabla2" name="horaTabla2" class="horaTabla2"></input>
+                <input id="horastabla" name="horastabla" class="horastabla"></input>
+                <input id="detalletabla" name="detalletabla" class="detalletabla"></input>
+                <input id="consultorTabla" name="consultorTabla" class="consultorTabla"></input>
+                <button>
+                    <label  type="text" src=""  id="btn-editar-modal" class="imagen30" name="btn-editar1" value="" ></label>Editar
+                </button>
+            </form> 
+        </div>
+        </dialog>
+        <img src="https://dba24.com.ar/wp-content/uploads/2022/06/admin-ajax-1-min.png" class="logo">
+        <div class="fondo">
+        <br>   
+        <h2 class="titulo">Gestion de tareas  </h2> 
+        <div class="filtros">
+            <form action="auth3" method="POST">
+                <spam class="etiqueta1">filtrar entre:</spam>
+                <input type="text" name="fecha1" class="fecha1" placeholder="Dia" >        
+                <input type="text" name="fecha2" class="fecha2" placeholder="Mes" >
+                <input type="text" name="fecha3" class="fecha2" placeholder="Año" >        
+                <input type="text" name="fecha4" class="fecha3" placeholder="Dia" >
+                <input type="text" name="fecha5" class="fecha2" placeholder="Mes" >        
+                <input type="text" name="fecha6" class="fecha2" placeholder="Año" >
+                <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/lupa1.png"  class="btn btn-primary btn-block mt-2" name="btn-login" value="" >
+            </form>
+        </div>
+        <!-- <form action="auth3" method="POST">    
+             <input type="text" placeholder="Buscar" name="buscador" class="buscador" >  
+            <button  class="boton-buscar"  id="boton">
+                <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/lupa1.png"  class="btn-busqueda" name="btn-busqueda" value="" >
+            </button> 
+            <br>
+        </form>     -->
+        <br>
+        <br>
+        <form action="guardar" method="POST">
+        <div id="agregar2" > 
+            <br>
+            <input type="text" class ="seleccionado" id="seleccionado" name="seleccionado">
+            <input type="text" class ="seleccionado2" id="seleccionado2" name="seleccionado2">
+            <input  type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/salvar1.png"  class="imagen3" name="btn-Editar" value="" >   
+        </form> 
+        <br>
+        <br>
+        </div> 
+        </div>
+          
+        <div class="fondo2">
+            <select onchange="javascript:cantidad(this)" style="margin-left: 627px;margin-bottom: 14px;" class="cb-box">        
+                <option selected="selected">Seleccionar cantidad</option>               
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <select onchange="javascript:Selector(this)" id="cbbox" class="cbbox">        
+                <option selected="selected">Seleccione una empresa</option>
+                <option >Yaguar</option>
+                <option >TVPublica</option>
+                <option >Tubos</option>
+                <option >Trivium</option>
+                <option >techbi/U M</option>
+                <option >SIDOM</option>
+                <option >Propato</option>
+                <option >PMI</option>
+                <option >Plateanet</option>
+                <option >Pena</option>
+                <option >obras publi</option>
+                <option >New Rolit</option>
+                <option >Medilife</option>
+                <option >Loteria BA</option>
+                <option >Ladcore</option>
+                <option >Laboratorio Roche</option>
+                <option >IPV</option>
+                <option >Infor</option>
+                <option >Industrias Guidi</option>
+                <option >Dabra</option>
+                <option >consulting-grupo(andreani)</option>
+                <option >Agrosalta</option>
+            </select>
+            <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/anadir1.png"  onclick=" Agregar()" class="imagen1" name="btn-Añadir" value="" >
+        
+        </div>    
+        <div class="container" >        
+            <ul id="lista" clas="lista-id"> </ul>
+                <table class="table table-bordered"  id="tablaDatos" >
+                    <thead id="agregar">
+                        <tr>
+                            <th class="text-center">id</th>
+                            <th class="text-center">Fecha</th>
+                            <th>Hora inicio</th>
+                            <th class="text-center">Hora fin</th>
+                            <th class="text-center">Horas</th>
+                            <th class="text-center">Detalle</th>
+                            <th class="text-center">Consultor</th>
+                            <th class="select-checkbox">Eliminar</th>
+                            <th class="select-checkbox">Editar</th>
+                        </tr>
+                    </thead> 
+                </table>
+            </div> 
+            <div class="espacio">
+                <div class="espacio2"> 
+                    <spam class="total">Total horas: </spam>
+                    <table class="table table-bordered2"  id="Total" >
+                        <thead id="">
+                            <tr>
+                                <th class="text-center"></th>
+                            </tr>
+                        </thead> 
+                    </table>
+                </div> 
+            </div>                
+            <script>
+                const modal=document.querySelector("#modal");
+                const btnborrarModal=document.querySelector("label#btn-borrar-modal");
+                
+                btnborrarModal.addEventListener("click",()=>{
+                    modal.close();
+                });
+                const modal2=document.querySelector("#modal2");
+                const btneditarModal=document.querySelector("label#btn-cerrar-modal2");
+                btneditarModal.addEventListener("click",()=>{
+                    modal2.close();
+                });
+                const btncerrarrModal=document.querySelector("#btn-cerrar-modal");
+                btncerrarrModal.addEventListener("click",()=>{
+                     modal.close();
+                 });
+                let contadorTabla = 0;
+                function Selector(elm)
+                {
+                    console.log(elm.value)  
+                    document.getElementById("seleccionado").value=elm.value
+                    
+                    
+                }
+                $(document).ready(function() {   
+                        var url = 'http://localhost:3000/Total';
+                        var table =$('#Total').DataTable({            
+                            "ajax":{
+                                "url": url,
+                                "dataSrc":""
+                                
+                            }, "order": [[0, "desc"]],
+                            "columns":[
+                                {"data":"horas"}
+                            ]
+                        });
+                    });
+
+                $(document).ready(function() {   
+                        var url = 'http://localhost:3000/tablaHoras2';
+                        var table =$('#tablaDatos').DataTable({            
+                            "ajax":{
+                                "url": url,
+                                "dataSrc":""
+                                
+                            }, "order": [[0, "desc"]],
+                            "columns":[
+                                {"data":"id_horas"},
+                                {"data":"fecha"},
+                                {"data":"hora_inicio"},
+                                {"data":"hora_fin"},
+                                {"data":"horas"},
+                                {"data":"detalle"},
+                                {"data":"consultor"},
+                                {"defaultContent":'<button type="button" name="eliminar" class="eliminar">Borrar</button><button type="button" name="editar" class="editar">Editar</button>'}
+                            ],
+                             'columnDefs': [{
+                                'targets': 0,
+                                'visible': false,
+                                'searchable': false,
+                             }]
+                        });
+                        obtener_id_eliminar('#tablaDatos',table);
+                        obtener_id_editar('#tablaDatos',table);
+                    });
+                    var obtener_id_eliminar = function(tbody, table){
+                        $(tbody).on("click","button.eliminar",function(){
+                        let data= table.row($(this).parents("tr")).data();
+                        console.log(data.id_horas);
+                        document.getElementById("idTabla").value=data.id_horas
+                        modal.show();
+                        });
+                        
+                    }                        
+
+                    var obtener_id_editar = function(tbody, table){
+                        $(tbody).on("click","button.editar",function(){
+                        let data= table.row($(this).parents("tr")).data();
+                        console.log(data.id_horas);
+                        document.getElementById("idTabla2").value=data.id_horas
+                        document.getElementById("fechaTabla").value=data.fecha
+                        document.getElementById("horaTabla1").value=data.hora_inicio
+                        document.getElementById("horaTabla2").value=data.hora_fin
+                        document.getElementById("horastabla").value=data.horas
+                        document.getElementById("detalletabla").value=data.detalle
+                        document.getElementById("consultorTabla").value=data.consultor
+
+                        modal2.show();
+                    });
+                        
+                }
+            </script>  
+            <script>
+                let filas;
+                let cuenta=0;
+                let fila =0;
+                let column=1;
+                let cargas=0;
+                function cantidad(elm1){ 
+                             
+                    document.getElementById("seleccionado2").value=elm1.value
+                    filas=elm1;
+                    fila =0;
+                }
+                let agregar = 0;
+                let usado=0;
+                function Agregar(){    
+                    var $divs = $("input#caja1").toArray().length;
+                    for (let a = 0; a < $divs; a++) {
+                        const agregados = document.querySelector("input#caja1");agregados.remove(); 
+                             
+                    }  
+                    for (let a = 0; a < filas.value; a++) {
+
+                    console.log("externa"+filas.value);
+                    if(cuenta===0){
+                        const app = document.querySelector("#agregar2");
+                        let texto="";
+                        let clase="";
+                        for (let a = 0; a < 5; a++) {
+                        let titulo = document.createElement("p");
+                            if(a==0){
+                            texto="Fecha";
+                            clase="texto-inicio"
+                                }
+                            if(a==1){
+                            texto="Hora inicio";
+                            clase="texto"
+                                }if(a==2){
+                            texto="Hora fin";
+                            clase="texto"
+                                }if(a==3){
+                            texto="Horas";
+                            clase="texto"
+                                }if(a==4){
+                            texto="Detalle";
+                            clase="texto"
+                                }
+                        titulo .textContent = texto;
+                        app.insertAdjacentElement("beforebegin", titulo );
+                        titulo.className=clase;
+                        }
+                        cuenta=1;
+                    }if(cuenta===1){
+                        let b =0;
+                        const app2 = document.querySelector("#agregar2");
+                        let br = document.createElement("br");
+                        br.className="salto"
+                        app2.insertAdjacentElement("afterbegin", br); 
+                        const saltador = document.querySelector("br.salto");
+                        saltador.remove(); 
+                        for (let a = 0; a < 5; a++) {
+                        let input = document.createElement("input");
+                        app2.insertAdjacentElement("afterbegin", input);
+                        input.className="caja"+fila+column ;
+                        input.name="caja"+fila+column ;
+                        input.id="caja1";
+                        column++;
+                        }
+                        app2.insertAdjacentElement("afterbegin", br);
+                            
+                    }
+                    column=1;
+                    fila++;
+                    usado=1;
+                } 
+                agregar=1; 
+                
+            }
+            </script>  
+    </body>
+</html>
+<!-- "Lenguage":{
+    "lengthMenu": "Mostrar _MENU_ registros",
+    "zeroRecords":"No se encontraron resultados",	
+    "info":"Mostrando registros del _STAR_ al _END_ de un total de _TOTAL_ registros",
+    "infoEmpty":"Mostrando registros del 8 al 8 un total de 0 registros",	
+    "infoFiltered":"(filtrado de un total de _MAX_ registros)",
+    "aSearch":"Buscar",
+    "oPaginate":{
+        "sFirst":"Primero",
+        "sLast":"Ultimo",
+        "sNext":"Siguiente",
+        "SPrevious":"Anterior"
+    },
+    "sProcessing":"Procesando...",
+} -->

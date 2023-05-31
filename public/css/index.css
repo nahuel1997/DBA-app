@@ -1,0 +1,45 @@
+html{
+    background-color:#6EC1E4;
+}
+.centro{
+    background-color:#6EC1E4 ;
+}
+.container{
+    margin-top: 80px;
+}
+.card{
+    width: 30rem;
+}
+input.form-control.mt-2 {
+    font-size: 18px;
+    border: none;
+    /* margin-top: 10px; */
+    margin-bottom: 20px;
+    width: 70%;
+    height: 41px;
+}
+
+input.btn.btn-primary.btn-block.mt-2 {
+    background-color: #61CE70;
+    color: white;
+    width: 338px;
+    height: 44px;
+    font-size: 18px;
+    border: 0px;
+}
+.button{
+    background-color: #61CE70;
+    color: white;
+    width: 338px;
+    height: 44px;
+    font-size: 18px;
+    border: 0px;
+}
+.btn-login{
+    background-color: #61CE70;
+    color: white;
+    width: 338px;
+    height: 44px;
+    font-size: 18px;
+    border: 0px;
+}
