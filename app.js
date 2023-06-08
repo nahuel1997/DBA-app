@@ -627,8 +627,8 @@ app.get('/logout', function (req, res) {
 });
 
 
-app.listen(3000, (error,req, res)=>{
+app.listen(3333, (error,req, res)=>{
 	if(error){
 		throw error;}
-    console.log('SERVER RUNNING IN http://localhost:3000');
+    console.log('SERVER RUNNING IN http://localhost:3333');
 });

@@ -4,10 +4,11 @@ function handleDisconnect() {
   const mysql = require('mysql');
   const connection = mysql.createConnection({
     //Con variables de entorno
-    host     : "35.208.174.20",
+    host     : "35.212.118.170",
     user     : "uwbdqcveof6ks",
-    password : "t6dbe2@oB2d@",
+    password : "1*ozm1*d5+>)",
     database : "dbugwvnur97dg6",
+
     connectTimeout: 100000
 
 })
