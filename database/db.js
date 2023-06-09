@@ -1,6 +1,6 @@
 //2 - Invocamos a MySQL y realizamos la conexion
 let cuenta=1
-function handleDisconnect() {
+//function handleDisconnect() {
   const mysql = require('mysql');
   const connection = mysql.createConnection({
     //Con variables de entorno
@@ -25,16 +25,16 @@ connection.connect((error)=>{
     var now = today.toLocaleString();
     console.log(now);
   });
-  connection.on('error', function(err) {
-    console.log('db error 2', err);
-    if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
-      handleDisconnect();                         // lost due to either server restart, or a
-    } else {                                      // connnection idle timeout (the wait_timeout
-      throw err;                                  // server variable configures this)
-    }
-  });
+//   connection.on('error', function(err) {
+//     console.log('db error 2', err);
+//     if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+//       handleDisconnect();                         // lost due to either server restart, or a
+//     } else {                                      // connnection idle timeout (the wait_timeout
+//       throw err;                                  // server variable configures this)
+//     }
+//   });
 
-   module.exports = connection;
-}
+module.exports = connection;
+// }
  
-handleDisconnect();
+// handleDisconnect();

@@ -2,6 +2,20 @@ let recorredor="";
 // 1 - Invocamos a Express
 const express = require('express');
 const app = express();
+const cors = require("cors");
+app.use(cors());
+var whitelist = ['http://localhost:3333']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+
 
 //2 - Para poder capturar los datos del formulario (sin urlencoded nos devuelve "undefined")
 app.use(express.urlencoded({extended:false}));
