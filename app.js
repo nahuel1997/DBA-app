@@ -507,7 +507,7 @@ app.post('/auth', async (req, res)=> {
 					}
 				}
 			}
-			query2 ="SELECT cast(`fecha`as char) as fecha,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`, `tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where `tbl.consultores`.id_consultor= ? and id_empresas= ? "+añoq+" "+mesq+" "+diaq+"";                
+			query2 ="SELECT id_horas, cast(`fecha`as char) as fecha,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`, `tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where `tbl.consultores`.id_consultor= ? and id_empresas= ? "+añoq+" "+mesq+" "+diaq+"";                
 			query3="SELECT sum(horas) as horas FROM `tbl.hora.consultores` join `tbl.empresas` on `tbl.hora.consultores`.`id_empresas`=`tbl.empresas`.`id_empresas` where  `nombre_empresa` = ? and id_consultor= ? "+añoq+" "+mesq+" "+diaq+" order BY fecha desc";
 			res.render('consultor');
 			});				

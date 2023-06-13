@@ -50,7 +50,50 @@
         <img src="https://dba24.com.ar/wp-content/uploads/2022/06/admin-ajax-1-min.png" class="logo">
         <div class="fondo">
         <br>   
-        <h2 class="titulo">Gestion de tareas  </h2> 
+        <h2 class="titulo">Gestion de tareas  </h2>    
+        <div class="fondo2">
+            <h3 id="titulo">Agregar horas</h3>
+            <h4 id="primertitulo">Cantidad de filas:</h4>
+            <h4 id="segundotitulo">Empresa:</h4>
+            <input type="text" class ="seleccionado3" id="seleccionado3" name="seleccionado3">
+            <select onchange="javascript:Selector(this)" id="cbbox" class="cbbox">        
+                <option selected="selected">Seleccione una empresa</option>
+                <option >Agrosalta</option>
+                <option >Consulting-grupo(andreani)</option>
+                <option >Dabra</option>
+                <option >Industrias Guidi</option>
+                <option >Infor</option>
+                <option >IPV</option>
+                <option >Laboratorio Roche</option>
+                <option >Ladcore</option>
+                <option >Loteria BA</option>
+                <option >Marcelo H Pena</option>
+                <option >Medilife</option>
+                <option >New Rolit</option>
+                <option >Obras publi</option>
+                <option >Plateanet</option>
+                <option >PMI</option>
+                <option >Propato</option>
+                <option >SIDOM</option>
+                <option >TechBI/ Urgencias</option>
+                <option >Trivium</option>
+                <option >Tubos Argentina</option>
+                <option >TVPublica</option>
+                <option >Yaguar</option>
+            </select>
+            <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/anadir1.png"  onclick=" Agregar()" class="imagen1" name="btn-Añadir" value="" >
+        </div> 
+        <form action="guardar" method="POST">
+            <div id="agregar2" >
+                <br>
+                <input type="text" class ="seleccionado" id="seleccionado" name="seleccionado">
+                <input type="text" class ="seleccionado2" id="seleccionado2" name="seleccionado2">
+                <input  type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/salvar1.png"  id="imagen3" class="imagen3" name="btn-Editar" value="" >
+            </form>
+            <br>
+            <br>
+            </div>
+            </div>
         <div class="filtros">
             <form action="auth3" method="POST">
                 <spam class="etiqueta1">filtrar entre:</spam>
@@ -62,70 +105,7 @@
                 <input type="text" name="fecha6" class="fecha2" placeholder="Año" >
                 <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/lupa1.png"  class="btn btn-primary btn-block mt-2" name="btn-login" value="" >
             </form>
-        </div>
-        <!-- <form action="auth3" method="POST">    
-             <input type="text" placeholder="Buscar" name="buscador" class="buscador" >  
-            <button  class="boton-buscar"  id="boton">
-                <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/lupa1.png"  class="btn-busqueda" name="btn-busqueda" value="" >
-            </button> 
-            <br>
-        </form>     -->
-        <br>
-        <br>
-        <form action="guardar" method="POST">
-        <div id="agregar2" > 
-            <br>
-            <input type="text" class ="seleccionado" id="seleccionado" name="seleccionado">
-            <input type="text" class ="seleccionado2" id="seleccionado2" name="seleccionado2">
-            <input  type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/salvar1.png"  class="imagen3" name="btn-Editar" value="" >   
-        </form> 
-        <br>
-        <br>
-        </div> 
-        </div>
-          
-        <div class="fondo2">
-            <select onchange="javascript:cantidad(this)" style="margin-left: 627px;margin-bottom: 14px;" class="cb-box">        
-                <option selected="selected">Seleccionar cantidad</option>               
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
-            <select onchange="javascript:Selector(this)" id="cbbox" class="cbbox">        
-                <option selected="selected">Seleccione una empresa</option>
-                <option >Yaguar</option>
-                <option >TVPublica</option>
-                <option >Tubos</option>
-                <option >Trivium</option>
-                <option >techbi/U M</option>
-                <option >SIDOM</option>
-                <option >Propato</option>
-                <option >PMI</option>
-                <option >Plateanet</option>
-                <option >Pena</option>
-                <option >obras publi</option>
-                <option >New Rolit</option>
-                <option >Medilife</option>
-                <option >Loteria BA</option>
-                <option >Ladcore</option>
-                <option >Laboratorio Roche</option>
-                <option >IPV</option>
-                <option >Infor</option>
-                <option >Industrias Guidi</option>
-                <option >Dabra</option>
-                <option >consulting-grupo(andreani)</option>
-                <option >Agrosalta</option>
-            </select>
-            <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/anadir1.png"  onclick=" Agregar()" class="imagen1" name="btn-Añadir" value="" >
-        
-        </div>    
+        </div>  
         <div class="container" >        
             <ul id="lista" clas="lista-id"> </ul>
                 <table class="table table-bordered"  id="tablaDatos" >
@@ -138,8 +118,8 @@
                             <th class="text-center">Horas</th>
                             <th class="text-center">Detalle</th>
                             <th class="text-center">Consultor</th>
-                            <th class="select-checkbox">Eliminar</th>
-                            <th class="select-checkbox">Editar</th>
+                            <th class="select-checkbox"> </th>
+                            <th class="select-checkbox"> </th>
                         </tr>
                     </thead> 
                 </table>
@@ -254,23 +234,32 @@
                 let fila =0;
                 let column=1;
                 let cargas=0;
-                function cantidad(elm1){ 
+                // function cantidad(elm1){ 
                              
-                    document.getElementById("seleccionado2").value=elm1.value
-                    filas=elm1;
-                    fila =0;
-                }
+                //     document.getElementById("seleccionado2").value=elm1.value
+                //     filas=elm1;
+                //     fila =0;
+                // }
                 let agregar = 0;
                 let usado=0;
-                function Agregar(){    
+                function Agregar(){   
+                    filas=document.getElementById("seleccionado3").value;
+                    console.log(filas);
+                    imagen = document.querySelector("input.imagen3");
+                    imagen.style.display = 'block';
+
                     var $divs = $("input#caja1").toArray().length;
                     for (let a = 0; a < $divs; a++) {
                         const agregados = document.querySelector("input#caja1");agregados.remove(); 
-                             
-                    }  
-                    for (let a = 0; a < filas.value; a++) {
+                    }
+                    var $divs = $("br.salto").toArray().length;
+                    for (let a = 0; a < $divs; a++) {
+                        const saltador = document.querySelector("br.salto");
+                        saltador.remove();
+                    } 
+                    for (let a = 0; a < filas; a++) {
 
-                    console.log("externa"+filas.value);
+                    console.log("externa"+filas);
                     if(cuenta===0){
                         const app = document.querySelector("#agregar2");
                         let texto="";
@@ -304,9 +293,6 @@
                         const app2 = document.querySelector("#agregar2");
                         let br = document.createElement("br");
                         br.className="salto"
-                        app2.insertAdjacentElement("afterbegin", br); 
-                        const saltador = document.querySelector("br.salto");
-                        saltador.remove(); 
                         for (let a = 0; a < 5; a++) {
                         let input = document.createElement("input");
                         app2.insertAdjacentElement("afterbegin", input);
@@ -316,7 +302,7 @@
                         column++;
                         }
                         app2.insertAdjacentElement("afterbegin", br);
-                            
+                        
                     }
                     column=1;
                     fila++;
@@ -325,21 +311,7 @@
                 agregar=1; 
                 
             }
+            
             </script>  
     </body>
 </html>
-<!-- "Lenguage":{
-    "lengthMenu": "Mostrar _MENU_ registros",
-    "zeroRecords":"No se encontraron resultados",	
-    "info":"Mostrando registros del _STAR_ al _END_ de un total de _TOTAL_ registros",
-    "infoEmpty":"Mostrando registros del 8 al 8 un total de 0 registros",	
-    "infoFiltered":"(filtrado de un total de _MAX_ registros)",
-    "aSearch":"Buscar",
-    "oPaginate":{
-        "sFirst":"Primero",
-        "sLast":"Ultimo",
-        "sNext":"Siguiente",
-        "SPrevious":"Anterior"
-    },
-    "sProcessing":"Procesando...",
-} -->
