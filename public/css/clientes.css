@@ -3,14 +3,21 @@
     border-radius: 16px 16px 0px 0px;
     width: 80%;
     margin-left: 10%;
-    color:#6EC1E4;
+    color:#014F92;
     margin-bottom: -21px;
     }
+    .fondo2{
+        background-color: white;
+        border-radius: 0px 0px 0px 0px;
+        width: 80%;
+        margin-left: 10%;
+        color:#014F92;
+        margin-bottom: -21px;
+        }    
 .logo{
     margin-left: 35%;
     }
 .fecha1{
-    margin-left: 30%;
     width: 50px;
     }  
 .fecha2{
@@ -50,21 +57,23 @@ tr {
      }     
 .datos1{
     width: 20%;
-    margin-left: 15%;
+    margin-left: 6%;
     margin-top: 100px;
      }     
 .datos2{
-    margin-left: 5%;
+    margin-left: 35px;
     } 
 body {
     font-size: 16px;
     font-family: monospace;
-    background-color:#6EC1E4 ;
+    background-color:#014F92;
      }
-.filtros{
-    margin-bottom: 10px; 
-    margin-left:10% ;    
-     }  
+.filtros {
+        /* margin-top: 5px; */
+        margin-bottom: -52px;
+        margin-left: 29%;
+        color: #61CE70;
+} 
 /* table{
     padding: 0px 15px 13px 15px;
  } */
@@ -100,9 +109,9 @@ div#tablaArticulos_info {
 }a.page-link {
     color: white;
     text-decoration: none;
-    border: 1px solid #6EC1E4;
+    border: 1px solid #014F92;
     border-radius: 6px;
-    background: #6EC1E4;
+    background: #014F92;
 }li.paginate_button.page-item.active a {
     color: black;
     background: white;
@@ -133,7 +142,7 @@ div#tablaArticulos_info {
     visibility: collapse;
 }table#tablaArticulos2 {
     width: 100% !important;
-    margin-left: 262px;
+    margin-left: 148px;
     margin-top: -24px;
 }table#tablaArticulos2 td:nth-child(4) {
     margin-left: 171px;
@@ -145,7 +154,7 @@ div#tablaArticulos_info {
     margin-left: 50px;
 }
 spam#datos3 {
-    margin-left: 45px;
+    margin-left: 30px;
 }spam#datos4 {
     margin-left: 114px;
 }td.table_alertHistory_issueType {
@@ -156,4 +165,56 @@ spam#datos3 {
     margin-top: 60px;
     margin-bottom: 50px;
     width: 500px;
+}div#tablaArticulos_length {
+    width: 181px;
+    margin-left: 984px;
+    color: #61CE70;
+}div#tablaArticulos_filter {
+    margin-left: 75px;
+    color: #61CE70;
+}td:nth-child(5) {
+    width: 480px;
+}th:nth-child(5) {
+    width: 459px !important;
+}h3 {
+    margin-left: 74px;
+    font-size: 16px;
+}
+
+
+
+/* ------------------ */
+/* table#tablaArticulos2 {
+    visibility: collapse;
+}*/spam.dt {
+    color: black;
+}table#tablaArticulos {
+    box-shadow: 0px 0px 45px grey;
+    background: #C6C6C6;
+}tr.odd {
+    color: black;
+}table#tablaArticulos2 td:nth-child(2) {
+    position: absolute;
+    margin-left: 637px;
+}table#tablaArticulos2 td:nth-child(3) {
+    position: absolute;
+    margin-left: 940px;
+}div#tablahorascontratadas_filter {
+    visibility: collapse;
+    position: absolute;
+}div#tablahorasusadas_wrapper {
+    position: absolute;
+    margin-left: 583px;
+    margin-top: -78px;
+}spam#dt2 {
+    position: absolute;
+    color: black;
+}div#tablahorasusadas_length {
+    position: absolute;
+    visibility: collapse;
+}div#tablahorasusadas_filter {
+    visibility: collapse;
+    position: absolute;
+}table#tablaArticulos td {
+    border: 1px solid white;
 }

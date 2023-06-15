@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="resources/css/consultor2.css" rel="stylesheet" type="text/css"/> 
+        <title>DBA24 Consultores</title>
+        <link rel="icon" href="https://dba24.com.ar/wp-content/uploads/2021/06/favicon.png">
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.6.2.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>        
+        <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+    </head>
+    <body>        
+        <dialog id="modal">
+            <p>Estas seguro de borrar ?</p>
+            <br><br>
+            <div class="botones">
+            <button>
+                <label  type="" src=""  id="btn-cerrar-modal" class="imagen30" name="btn-cerrar1" value="" >Cerrar</label>
+            </button>
+            <form action="borrar" method="POST"> 
+                <input id="idTabla" name="idTabla" class="idTabla"></input>
+                <button>
+                    <label  type="text" src=""  id="btn-borrar-modal" class="imagen30" name="btn-borrar1" value="" ></label>Borrar
+                </button>
+            </form> 
+        </div>
+        </dialog>
+        <dialog id="modal2">
+            <p>Estas seguro que desea editar ?</p>
+            <br><br>
+            <div class="botones">
+            <button>
+                <label  type="" src=""  id="btn-cerrar-modal2" class="imagen30" name="btn-cerrar1" value="" >Cerrar</label>
+            </button>
+            <form action="editar" method="POST"> 
+                <input id="idTabla2" name="idTabla2" class="idTabla2"></input>
+                <input id="fechaTabla" name="fechaTabla" class="fechaTabla"></input>
+                <input id="horaTabla1" name="horaTabla1" class="horaTabla1"></input>
+                <input id="horaTabla2" name="horaTabla2" class="horaTabla2"></input>
+                <input id="horastabla" name="horastabla" class="horastabla"></input>
+                <input id="detalletabla" name="detalletabla" class="detalletabla"></input>
+                <input id="consultorTabla" name="consultorTabla" class="consultorTabla"></input>
+                <input id="fechaTabla2" name="fechaTabla2" class="fechaTabla2"></input>
+                <button>
+                    <label  type="text" src=""  id="btn-editar-modal" class="imagen30" name="btn-editar1" value="" ></label>Editar
+                </button>
+            </form> 
+        </div>
+        </dialog>
+        <img src="https://dba24.com.ar/wp-content/uploads/2022/06/admin-ajax-1-min.png" class="logo">
+        <div class="fondo">
+        <br>   
+        <h2 class="titulo">Gestion de tareas  </h2>   
+        <br>
+        <form action="redirigir2" class="rolback" method="POST">
+            <input type="image" src="https://dba24.com.ar/wp-content/uploads/2023/06/volver.png" id="imagen4" class="imagen4" name="btn-redirigir" value="">
+        </form>
+        <div class="filtros">
+            <form action="auth3" method="POST">
+                <spam class="etiqueta1">filtrar entre:</spam>
+                <input type="text" name="fecha1" class="fecha1" placeholder="Dia" >        
+                <input type="text" name="fecha2" class="fecha2" placeholder="Mes" >
+                <input type="text" name="fecha3" class="fecha2" placeholder="Año" >        
+                <input type="text" name="fecha4" class="fecha3" placeholder="Dia" >
+                <input type="text" name="fecha5" class="fecha2" placeholder="Mes" >        
+                <input type="text" name="fecha6" class="fecha2" placeholder="Año" >
+                <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/lupa1.png"  class="btn btn-primary btn-block mt-2" name="btn-login" value="" >
+            </form>
+        </div>  
+        <div class="container" >        
+            <ul id="lista" clas="lista-id"> </ul>
+                <table class="table table-bordered"  id="tablaDatos" >
+                    <thead id="agregar">
+                        <tr>
+                            <th class="text-center">id</th>
+                            <th class="text-center">Fecha</th>
+                            <th>Hora inicio</th>
+                            <th class="text-center">Hora fin</th>
+                            <th class="text-center">Horas</th>
+                            <th class="text-center">Detalle</th>
+                            <th class="text-center">Consultor</th>
+                            <th class="select-checkbox"> </th>
+                            <th class="select-checkbox"> </th>
+                        </tr>
+                    </thead> 
+                </table>
+            </div> 
+            <div class="espacio">
+                <div class="espacio2"> 
+                    <spam class="total">Total horas: </spam>
+                    <table class="table table-bordered2"  id="Total" >
+                        <thead id="">
+                            <tr>
+                                <th class="text-center"></th>
+                            </tr>
+                        </thead> 
+                    </table>
+                </div> 
+            </div>                
+            <script>
+                const modal=document.querySelector("#modal");
+                const btnborrarModal=document.querySelector("label#btn-borrar-modal");
+                
+                btnborrarModal.addEventListener("click",()=>{
+                    modal.close();
+                });
+                const modal2=document.querySelector("#modal2");
+                const btneditarModal=document.querySelector("label#btn-cerrar-modal2");
+                btneditarModal.addEventListener("click",()=>{
+                    modal2.close();
+                });
+                const btncerrarrModal=document.querySelector("#btn-cerrar-modal");
+                btncerrarrModal.addEventListener("click",()=>{
+                     modal.close();
+                 });
+                let contadorTabla = 0;
+                function Selector(elm)
+                {
+                    console.log(elm.value)  
+                    document.getElementById("seleccionado").value=elm.value
+                    
+                    
+                }
+                $(document).ready(function() {   
+                        var url = 'http://localhost:3333/Total';
+                        var table =$('#Total').DataTable({            
+                            "ajax":{
+                                "url": url,
+                                "dataSrc":""
+                                
+                            }, "order": [[0, "desc"]],
+                            "columns":[
+                                {"data":"horas"}
+                            ]
+                        });
+                    });
+
+                $(document).ready(function() {   
+                        var url = 'http://localhost:3333/tablaHoras2';
+                        var table =$('#tablaDatos').DataTable({            
+                            "ajax":{
+                                "url": url,
+                                "dataSrc":""
+                                
+                            }, 
+                            "order": [[0, "desc"]],
+                            "columns":[
+                                {"data":"id_horas"},
+                                {"data":"fecha"},
+                                {"data":"hora_inicio"},
+                                {"data":"hora_fin"},
+                                {"data":"horas"},
+                                {"data":"detalle"},
+                                {"data":"consultor"},
+                                {"defaultContent":'<button type="button" name="eliminar" class="eliminar"> <input type="image" src="https://dba24.com.ar/wp-content/uploads/2023/06/marca-de-la-cruz.png" id="imagen5" class="imagen5" name="btn-redirigir" value=""></button><button type="button" name="editar" class="editar"><input type="image" src="https://dba24.com.ar/wp-content/uploads/2023/06/editar-1.png" id="imagen5" class="imagen5" name="btn-editar" value=""></button>'}
+                            ],
+                             'columnDefs': [{
+                                'targets': 0,
+                                'visible': false,
+                                'searchable': false,
+                                
+                             }]
+                        });
+                        obtener_id_eliminar('#tablaDatos',table);
+                        // obtener_id_editar('#tablaDatos',table);
+                        obtener_id_editar('#tablaDatos tbody', table);
+                    });
+                    var obtener_id_eliminar = function(tbody, table){
+                        $(tbody).on("click","button.eliminar",function(){
+                        let data= table.row($(this).parents("tr")).data();
+                        console.log(data.id_horas);
+                        document.getElementById("idTabla").value=data.id_horas
+                        modal.show();
+                        });
+                        
+                    }     
+                    //                     var obtener_id_editar = function(tbody, table) {
+                    // $(tbody).on("click", "button.editar", function() {
+                    //     var data = table.row($(this).parents("tr")).data();
+                    //     var row = $(this).parents("tr");
+
+                    //     // Reemplazar las columnas por campos de entrada (input)
+                    //     $(row).find("td").each(function(index) {
+                    //     if (index < 5) { // Ignorar la última columna de botones
+                    //         var value = $(this).text();
+                    //         $(this).html('<input type="text" value="' + value + '">');
+                    //     }
+                    //     });
+
+                    //     // Cambiar el botón "Editar" por un botón de "Guardar"
+                    //     $(row).find(".editar").replaceWith('<button type="button" name="guardar" class="guardar">Guardar</button>');
+                    // });
+                    // };
+                    
+                    // var obtener_id_editar = function(tbody, table) {
+                    // $(tbody).on("click", "button.editar", function() {
+                    //     let row = $(this).closest("tr");
+                    //     let data = table.row(row).data();
+
+                    //     // Obtén los valores de las columnas de la fila seleccionada
+                    //     let fecha = data.fecha;
+                    //     let horaInicio = data.hora_inicio;
+                    //     let horaFin = data.hora_fin;
+                    //     let horas = data.horas;
+                    //     let detalle = data.detalle;
+                    //     let consultor = data.consultor;
+
+                    //     // Crea los elementos de etiqueta para reemplazar las columnas
+                    //     let labelFecha = $("<label>").text(fecha);
+                    //     let labelHoraInicio = $("<label>").text(horaInicio);
+                    //     let labelHoraFin = $("<label>").text(horaFin);
+                    //     let labelHoras = $("<label>").text(horas);
+                    //     let labelDetalle = $("<label>").text(detalle);
+                    //     let labelConsultor = $("<label>").text(consultor);
+
+                    //     // Reemplaza las columnas por las etiquetas
+                    //     row.find("td:eq(0)").html(labelFecha);
+                    //     row.find("td:eq(1)").html(labelHoraInicio);
+                    //     row.find("td:eq(2)").html(labelHoraFin);
+                    //     row.find("td:eq(3)").html(labelHoras);
+                    //     row.find("td:eq(4)").html(labelDetalle);
+                    //     row.find("td:eq(5)").html(labelConsultor);
+
+                    //     // Cambia el botón "Editar" por uno nuevo
+                    //     let nuevoBoton = $("<button>").attr("type", "button").attr("name", "guardar").addClass("guardar").text("Guardar");
+                    //     row.find("td:eq(6)").html(nuevoBoton);
+                    // });
+                    // };                   
+
+                     var obtener_id_editar = function(tbody, table){
+                         $(tbody).on("click","button.editar",function(){
+                         let data= table.row($(this).parents("tr")).data();
+                         console.log(data.id_horas);
+                         document.getElementById("idTabla2").value=data.id_horas
+                         document.getElementById("fechaTabla").value=data.fecha
+                         document.getElementById("horaTabla1").value=data.hora_inicio
+                         document.getElementById("horaTabla2").value=data.hora_fin
+                         document.getElementById("horastabla").value=data.horas
+                         document.getElementById("detalletabla").value=data.detalle
+                         document.getElementById("consultorTabla").value=data.consultor
+
+                        modal2.show();
+                        setTimeout(function(){
+                            let dia=document.getElementById('fechaTabla').value.slice(0, 2 );
+                            let mes=document.getElementById('fechaTabla').value.slice(3, 5 );
+                            let ano=document.getElementById('fechaTabla').value.slice(6, 11 );
+                            let fecha =ano+"-"+mes+"-"+dia;
+                            document.getElementById('fechaTabla2').value=fecha    
+                        }, 500);
+                     });
+                     }
+                     fechaTabla.onblur = function(){
+                            let dia=document.getElementById('fechaTabla').value.slice(0, 2 );
+                            let mes=document.getElementById('fechaTabla').value.slice(3, 5 );
+                            let ano=document.getElementById('fechaTabla').value.slice(6, 11 );
+                            let fecha =ano+"-"+mes+"-"+dia;
+                            document.getElementById('fechaTabla2').value=fecha    
+                        }
+                        horaTabla1.onblur = function() {
+                            let numero1=document.getElementById('horaTabla1').value.slice(0, 2 );
+                            let numero2=document.getElementById('horaTabla2').value.slice(0, 2 );
+                            let numero3 = parseInt(document.getElementById('horaTabla1').value.slice(3, 4 ))/0.6;
+                            let numero4 = parseInt(document.getElementById('horaTabla2').value.slice(3, 4 ))/0.6;
+                            let n1 = numero1+"."+numero3;
+                            let n2 = numero2+"."+numero4;
+
+                            let suma = ( parseFloat(n2)-parseFloat(n1)); 
+                            document.getElementById('horastabla').value=suma
+                        };   
+                        horaTabla2.onblur = function() {
+                            let numero1=document.getElementById('horaTabla1').value.slice(0, 2 );
+                            let numero2=document.getElementById('horaTabla2').value.slice(0, 2 );
+                            let numero3 = parseInt(document.getElementById('horaTabla1').value.slice(3, 4 ))/0.6;
+                            let numero4 = parseInt(document.getElementById('horaTabla2').value.slice(3, 4 ))/0.6;
+                            let n1 = numero1+"."+numero3;
+                            let n2 = numero2+"."+numero4;
+
+                            let suma = ( parseFloat(n2)-parseFloat(n1)); 
+                            document.getElementById('horastabla').value=suma
+                        };                        
+            </script>  
+    </body>
+</html>

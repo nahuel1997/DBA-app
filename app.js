@@ -100,29 +100,26 @@ app.post('/borrar', async (req, res)=>{
 })
 app.post('/editar', async (req, res)=>{
 	let id_tabla=req.body.idTabla2;
-	let fechaTabla= req.body.fechaTabla;
+	let fechaTabla= req.body.fechaTabla2;
 	let horaTabla1= req.body.horaTabla1;
 	let horaTabla2= req.body.horaTabla2;
 	let horastabla= req.body.horastabla;
 	let detalletabla= req.body.detalletabla;
 	let consultorTabla= req.body.consultorTabla;
 	console.log(id_tabla+" "+fechaTabla+" "+horaTabla1+" "+horaTabla2+" "+horastabla+" "+detalletabla+" "+consultorTabla);
-	connection.query('UPDATE `tbl.hora.consultores` SET ? WHERE `id_horas`= '+id_tabla, {fecha:req.body.fechaTabla , hora_inicio:req.body.horaTabla1, hora_fin:req.body.horaTabla2, horas:req.body.horastabla, detalle:req.body.detalletabla}, async (error1, resultado1, fields)=> {
+	connection.query('UPDATE `tbl.hora.consultores` SET ? WHERE `id_horas`= '+id_tabla, {fecha:req.body.fechaTabla2 , hora_inicio:req.body.horaTabla1, hora_fin:req.body.horaTabla2, horas:req.body.horastabla, detalle:req.body.detalletabla}, async (error1, resultado1, fields)=> {
 	 	if(error1){
 	 		throw error1;}
 	 	else{
-	 	res.render('consultor', {
-	 		ruta: '/consultor'
+	 	res.render('consultor2', {
+	 		ruta: '/consultor2'
 	 	});
 	 	}
 	 });
 })
 app.post('/guardar', async (req, res)=>{
-	const seleccionado2=req.body.seleccionado2;
 	const seleccionado1=req.body.seleccionado; 
 	recorredor =seleccionado1;
-	console.log(seleccionado1);
-	let linea=0;
 	
 	connection.query('SELECT `id_usuario` FROM `tbl.usuarios`where `usuario`=?', [ req.session.name ], async (error1, resultado1, fields)=> {
 		if(error1){
@@ -133,92 +130,13 @@ app.post('/guardar', async (req, res)=>{
 		connection.query('SELECT `id_consultor` FROM `tbl.consultores` WHERE `id_usuario`=?', [ resultado1[0].id_usuario ], async (error3, resultado2, fields)=> {
 			if(error3){
 				throw error3;}
-				for(let a = 0; a < seleccionado2; a++){
-					for(let a = 0; a < 6; a++){
-					}
-					if(linea==0){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja05, hora_inicio:req.body.caja04, hora_fin:req.body.caja03, horas:req.body.caja02, detalle:req.body.caja01}, async (error, results)=>{
+						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja06, hora_inicio:req.body.caja04, hora_fin:req.body.caja03, horas:req.body.caja02, detalle:req.body.caja01}, async (error, results)=>{
 							if(error){
 									console.log(error);
 								}else{ 
 									console.log("carga excitosa!!");
 								}
-						});
-					}if(linea==1){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja15, hora_inicio:req.body.caja14, hora_fin:req.body.caja13, horas:req.body.caja12, detalle:req.body.caja11}, async (error, results)=>{
-							if(error){
-									console.log(error);
-								}else{ 
-									console.log("carga excitosa!!");
-								}
-						});	
-					}if(linea==2){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja25, hora_inicio:req.body.caja24, hora_fin:req.body.caja23, horas:req.body.caja22, detalle:req.body.caja21}, async (error, results)=>{
-							if(error){
-									console.log(error);
-								}else{ 
-									console.log("carga excitosa!!");
-								}
-						});	
-					}if(linea==3){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja35, hora_inicio:req.body.caja34, hora_fin:req.body.caja33, horas:req.body.caja32, detalle:req.body.caja31}, async (error, results)=>{
-							if(error){
-									console.log(error);
-								}else{ 
-									console.log("carga excitosa!!");
-								}
-						});	
-					}if(linea==4){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja45, hora_inicio:req.body.caja44, hora_fin:req.body.caja43, horas:req.body.caja42, detalle:req.body.caja41}, async (error, results)=>{
-							if(error){
-									console.log(error);
-								}else{ 
-									console.log("carga excitosa!!");
-								}
-						});	
-					}if(linea==5){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja55, hora_inicio:req.body.caja54, hora_fin:req.body.caja53, horas:req.body.caja52, detalle:req.body.caja51}, async (error, results)=>{
-							if(error){
-									console.log(error);
-								}else{ 
-									console.log("carga excitosa!!");
-								}
-						});	
-					}if(linea==6){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja65, hora_inicio:req.body.caja64, hora_fin:req.body.caja63, horas:req.body.caja62, detalle:req.body.caja61}, async (error, results)=>{
-							if(error){
-									console.log(error);
-								}else{ 
-									console.log("carga excitosa!!");
-								}
-						});	
-					}if(linea==7){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja75, hora_inicio:req.body.caja74, hora_fin:req.body.caja73, horas:req.body.caja72, detalle:req.body.caja71}, async (error, results)=>{
-							if(error){
-									console.log(error);
-								}else{ 
-									console.log("carga excitosa!!");
-								}
-						});	
-					}if(linea==8){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja85, hora_inicio:req.body.caja84, hora_fin:req.body.caja83, horas:req.body.caja82, detalle:req.body.caja81}, async (error, results)=>{
-							if(error){
-									console.log(error);
-								}else{ 
-									console.log("carga excitosa!!");
-								}
-						});	
-					}if(linea==9){
-						connection.query('INSERT INTO `tbl.hora.consultores`set ?',{id_consultor:resultado2[0].id_consultor,id_empresas:resultado3[0].id_empresas,fecha:req.body.caja95, hora_inicio:req.body.caja94, hora_fin:req.body.caja93, horas:req.body.caja92, detalle:req.body.caja91}, async (error, results)=>{
-							if(error){
-									console.log(error);
-								}else{ 
-									console.log("carga excitosa!!");
-								}
-						});	
-					}linea++;
-					
-				}
+						});					
 				res.render('consultor', {
 					ruta: '/consultor'
 				});
@@ -227,12 +145,23 @@ app.post('/guardar', async (req, res)=>{
 		});
 
 });
-
-
+app.post('/redirigir', async (req, res)=>{
+	const seleccionado2=req.body.seleccionado2;
+	req.session.text =seleccionado2;
+	res.render('consultor2', {
+		ruta: '/consultor2',
+		text: seleccionado2
+	});
+});
+app.post('/redirigir2', async (req, res)=>{
+	res.render('consultor', {
+		ruta: '/consultor'
+	});
+});
 //query
 let empresa=""; 
-let query="SELECT cast(`fecha`as char) as fecha,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`, `tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where id_empresas= ? and year(`fecha`)>2000 order BY fecha desc";
-let query2="SELECT id_horas,cast(`fecha`as char) as fecha,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`, `tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where `tbl.consultores`.id_consultor= ? and id_empresas= ? and year(`fecha`)>2000 order BY fecha desc";
+let query='SELECT  id_horas,(date_format(fecha, "%d-%m-%Y")) as fecha ,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`," ", `tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where id_empresas= ? and year(`fecha`)>2000 ORDER BY year(`fecha`) DESC, month(`fecha`) DESC ,day(`fecha`) DESC';
+let query2='SELECT id_horas,(date_format(fecha, "%d-%m-%Y")) as fecha ,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`," ",`tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where `tbl.consultores`.id_consultor= ? and id_empresas= ? and year(`fecha`)>2000  ORDER BY year(`fecha`) DESC, month(`fecha`) DESC ,day(`fecha`) DESC';
 let query3="SELECT sum(horas) as horas FROM `tbl.hora.consultores` join `tbl.empresas` on `tbl.hora.consultores`.`id_empresas`=`tbl.empresas`.`id_empresas` where  `nombre_empresa` = ? and id_consultor= ? and year(`fecha`)>2000 order BY fecha desc";
 
 //11 - Metodo para la autenticacion
@@ -298,7 +227,6 @@ app.post('/auth', async (req, res)=> {
 		let fecha5 = req.body.fecha5;
 		let fecha6 = req.body.fecha6; 
         let validar=0 ,mesv1=0 ,mesv2=0 ,añov1=0,añov2=0,diav1=0,diav2=0,ruta; 
-		console.log("holaaaaaa"+fecha1+fecha2+fecha3+fecha4+fecha5+fecha6)
 		if(fecha1===""){
 			fecha1="1"
 			diav1=1;
@@ -397,8 +325,8 @@ app.post('/auth', async (req, res)=> {
                 }
             }
         }
-        query ="SELECT cast(`fecha`as char) as fecha,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`, `tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where id_empresas= ? "+añoq+" "+mesq+" "+diaq+""                   
-		
+        query ="SELECT (date_format(fecha, '%d-%m-%Y')) as fecha,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`,' ',`tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where id_empresas= ? "+añoq+" "+mesq+" "+diaq+" ORDER BY year(`fecha`) DESC, month(`fecha`) DESC ,day(`fecha`) DESC"                   
+		console.log(query);
 		res.render('cliente');
 		});	
 
@@ -507,9 +435,9 @@ app.post('/auth', async (req, res)=> {
 					}
 				}
 			}
-			query2 ="SELECT id_horas, cast(`fecha`as char) as fecha,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`, `tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where `tbl.consultores`.id_consultor= ? and id_empresas= ? "+añoq+" "+mesq+" "+diaq+"";                
+			query2 ="SELECT id_horas, (date_format(fecha, '%d-%m-%Y')) as fecha,`hora_inicio`,`hora_fin`,`horas`,`detalle`,concat(`tbl.consultores`.`nombre_consultor`,' ', `tbl.consultores`.`apellido_consultor`)as consultor FROM `tbl.hora.consultores` join `tbl.consultores` on `tbl.hora.consultores`.`id_consultor`=`tbl.consultores`.`id_consultor` where `tbl.consultores`.id_consultor= ? and id_empresas= ? "+añoq+" "+mesq+" "+diaq+" ORDER BY year(`fecha`) DESC, month(`fecha`) DESC ,day(`fecha`) DESC";                
 			query3="SELECT sum(horas) as horas FROM `tbl.hora.consultores` join `tbl.empresas` on `tbl.hora.consultores`.`id_empresas`=`tbl.empresas`.`id_empresas` where  `nombre_empresa` = ? and id_consultor= ? "+añoq+" "+mesq+" "+diaq+" order BY fecha desc";
-			res.render('consultor');
+			res.render('consultor2');
 			});				
 
 //12 - Método para controlar que está auth en todas las páginas
@@ -539,6 +467,7 @@ app.get('/tablaClientes',(req,res)=>{
 				if(error4){
 					throw error4;
 				}else{
+					console.log(query);
 					res.send(results7);
 					res.end();
 				}
@@ -567,7 +496,8 @@ app.get('/tablaHoras',(req,res)=>{
 		});		
 });
 app.get('/tablaHoras2',(req,res)=>{
-	let seleccionado5="Yaguar";
+	let seleccionado5=req.session.text;
+	console.log(req.session.text);
 	const prueba=req.body.seleccionado;
 	connection.query('SELECT `id_usuario` FROM `tbl.usuarios`where `usuario`=?', [ req.session.name ], async (error2, resultado1, fields)=> {
 		if(error2){
@@ -591,16 +521,29 @@ app.get('/tablaHoras2',(req,res)=>{
 			});
 		});		
 });
-app.get('/lista',(req,res)=>{
-	connection.query('SELECT `nombre_empresa` FROM `tbl.empresas` ', async (error4, results)=> {
-		if(error4){
-			throw error4;
-		}else{
-			console.log(results);
-			res.send(results);
-			res.end();
-		}
-	});	
+app.get('/horasusadas',(req,res)=>{
+	connection.query('SELECT `id_usuario` FROM `tbl.usuarios`where `usuario`=?', [ req.session.name ], async (error2, resultado1, fields)=> {
+		if(error2){
+			throw error2;}
+		connection.query('SELECT `id_empresas` FROM `tbl.empresas` WHERE `id_usuario`=?', [ resultado1[0].id_usuario ], async (error3, resultado2, fields)=> {
+			if(error3){
+				throw error3;}
+			connection.query("SELECT `id_contrato`,`horas_contratadas`,cast(`fecha_inicio` as char) as fecha_inicio,cast(`fecha_fin` as char) as fecha_fin FROM `tbl.contratos` where id_empresa= ? ORDER BY `id_contrato` desc LIMIT 1 OFFSET 0",[resultado2[0].id_empresas], async (error4, results9)=> {
+			  	if(error4){
+			  		throw error4;
+			  	}	
+				connection.query("SELECT sum(`horas`)as horas FROM `tbl.hora.consultores` WHERE `id_empresas`= ? and `tbl.hora.consultores`.`fecha`>= ? and `tbl.hora.consultores`.`fecha`<= ?",[resultado2[0].id_empresas,results9[0].fecha_inicio,results9[0].fecha_fin], async (error4, results40)=> {
+					if(error4){
+						throw error4;
+						}else{
+						res.send(results40);
+						res.end();
+						
+						}
+					});	
+			 	});
+			});
+		});	
 });
 
 app.get('/Total',(req,res)=>{
@@ -615,7 +558,6 @@ app.get('/Total',(req,res)=>{
 				if(error4){
 					throw error4;
 				}else{
-					console.log(results);
 					res.send(results);
 					res.end();
 				}

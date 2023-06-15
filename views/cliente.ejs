@@ -15,40 +15,44 @@
         <img src="https://dba24.com.ar/wp-content/uploads/2022/06/admin-ajax-1-min.png" class="logo">
         <div class="fondo">
         <br>
-        <h2 class="titulo">Detalles horas</h2> 
+        <h2 class="titulo">Informe de trabajor realizados</h2> 
         <br>
-        <div class="filtros">
-            <form action="auth2" method="POST">
-               
-                <spam class="etiqueta1">filtrar entre:</spam> 
-                <input type="text" name="fecha1"id="fecha1" class="fecha1" placeholder="Dia" >        
-                <input type="text" name="fecha2"id="fecha2" class="fecha2" placeholder="Mes" >
-                <input type="text" name="fecha3"id="fecha3" class="fecha2" placeholder="Año" >        
-                <input type="text" name="fecha4"id="fecha4" class="fecha3" placeholder="Dia" >
-                <input type="text" name="fecha5"id="fecha5" class="fecha2" placeholder="Mes" >        
-                <input type="text" name="fecha6"id="fecha6" class="fecha2" placeholder="Año" >
-                <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/lupa1.png"  class="btn-busqueda" name="btn-Busqueda" value="usuario" >
-            </form>         
-        </div>      
         <br>
         <div>
-
+            <h3>Informacion de contrato</h3>
             <spam id="datos1" class="datos1">Horas contratadas:  </spam>
-            <spam id="datos2" class="datos2">Horas restantes:</spam>
-            <spam id="datos3" class="datos3">Horas usadas:</spam>
+            <spam id="datos2" class="datos2">Horas disponibles:  </spam><spam id="dt2" class="dt2"></spam>
+            <spam id="datos3" class="datos3">Horas usadas:  </spam><!--<spam class="dt">30</spam> -->
+            <spam id="datos3" class="datos3">Inicio contrato:  </spam>
             <spam id="datos4" class="datos4">Vencimientos contrato: </spam>
-        </div>            
+        </div>         
         <table id="tablaArticulos2" class="horas"   >             
         </table>
+        <table id="tablahorasusadas" class="horasUsadas">             
+        </table>
         <br>
-        </div>
-        <div class="fondo">
+        </div>     
+        <div class="fondo2">
+            <h3>Filtros</h3> 
+            <div class="filtros">
+                <form action="auth2" method="POST">
+                    <spam class="etiqueta1">filtrar entre:</spam> 
+                    <input type="text" name="fecha1"id="fecha1" class="fecha1" placeholder="Dia" >        
+                    <input type="text" name="fecha2"id="fecha2" class="fecha2" placeholder="Mes" >
+                    <input type="text" name="fecha3"id="fecha3" class="fecha2" placeholder="Año" >        
+                    <input type="text" name="fecha4"id="fecha4" class="fecha3" placeholder="Dia" >
+                    <input type="text" name="fecha5"id="fecha5" class="fecha2" placeholder="Mes" >        
+                    <input type="text" name="fecha6"id="fecha6" class="fecha2" placeholder="Año" >
+                    <input type="image" src="https://dba24.com.ar/wp-content/uploads/2022/10/lupa1.png"  class="btn-busqueda" name="btn-Busqueda" value="usuario" >
+                </form>         
+            </div> 
             <br><br><br><br>
-        </div>
-        <div class="container" >               
+        </div>  
+        <div class="container" >                
             <table id="tablaArticulos" class="table table-bordered"   >
                     <thead>
                         <tr>
+                            <th class="text-center">id</th>
                             <th class="text-center">Fecha</th>
                             <th>Hora inicio</th>
                             <th class="text-center">Hora fin</th>
@@ -107,14 +111,35 @@
                             "ajax":{
                                 "url": url,
                                 "dataSrc":""
-                            }, "order": [[0, "desc"]],
+                            },
+                             "order": [[0, "desc"]],
                             "columns":[
+                                {"data":"id_horas"},
                                 {"data":"fecha"},
                                 {"data":"hora_inicio"},
                                 {"data":"hora_fin"},
                                 {"data":"horas"},
                                 {"data":"detalle"},
                                 {"data":"consultor"}
+                                
+                            ],
+                             'columnDefs': [{
+                                'targets': 0,
+                                'visible': false,
+                                'searchable': false,
+                                
+                             }]
+                        });
+                    });
+                    $(document).ready(function() {   
+                        var url = 'http://localhost:3333/horasusadas';
+                        $('#tablahorasusadas').DataTable({            
+                            "ajax":{
+                                "url": url,
+                                "dataSrc":""
+                            }, "order": [[0]],
+                            "columns":[
+                                {"data":"horas","className":"columna2"}
                                 
                             ]
                         });
@@ -129,18 +154,32 @@
                             "LIMIT ":1,
                             "columns":[
                                 {"data":"id_contrato"},
-                                {"data":"horas_contratadas"},
+                                {"data":"horas_contratadas", "className":"columna1"},
                                 {"data":"fecha_inicio"},
                                 {"data":"fecha_fin"}
                                 
-                            ],"columnDefs": [ {
-                                    "targets": [0, 1, 2, 3],
-                                    "className": 'table_alertHistory_issueType',
-                                    "width": "30%"
-                            }]
+                            ],
+                             'columnDefs': [{
+                                'targets': 0,
+                                'visible': false,
+                                'searchable': false,
+                             }]
                         });
                     });
-                </script>       
+                    setTimeout(function(){
+                        let numero1 =document.getElementsByClassName('columna1')[1].innerText;
+                        let numero2= document.getElementsByClassName('columna2 sorting_1')[0].innerText;
+                        let numero3= parseFloat(numero1)-parseFloat(numero2);
+                        document.getElementById("dt2").innerHTML=numero3;
+                        if(numero3<1){
+                            let rojo = document.querySelector("spam#dt2");
+                            rojo.style.color = 'red';
+                            alert("NO poseen mas horas disponibles")
+                        }
+                    }, 2000);
+                    
+                    
+                </script>            
     </body>
 </html>
 

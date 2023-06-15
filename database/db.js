@@ -6,7 +6,7 @@ let cuenta=1
     //Con variables de entorno
     host     : "35.212.118.170",
     user     : "uwbdqcveof6ks",
-    password : "1*ozm1*d5+>)",
+    password : "#213f(3:jkD1",
     database : "dbugwvnur97dg6",
 
     connectTimeout: 100000

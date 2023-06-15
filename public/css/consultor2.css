@@ -2,7 +2,7 @@
     padding-top: 30px;
 }
 .total {
-    margin-left: 1000px;
+    margin-left: 847px;
 }
 .fondo2{
     background-color: white;
@@ -14,8 +14,8 @@
 .fondo{
     background-color: white;
     border-radius: 16px 16px 16px 16px;
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 6%;
     color:#014F92;
     margin-bottom: -36px;
     padding-bottom: 38px;
@@ -46,14 +46,14 @@ tr {
 .base {
     border: 1px solid grey;
     }
-.container{
-    overflow-y: scroll !important;
-    max-height: 500px !important;
-    margin-top: 0px;
-    width: 80%;
-    margin-left: 10%;
-    background-color: white;
-     }
+    .container {
+        overflow-y: scroll !important;
+        max-height: 500px !important;
+        margin-top: 0px;
+        width: 100%;
+        margin-left: 0;
+        background-color: white;
+    }
 .espacio{
     border-radius: 0px 0px 10px 10px !important;
     height: 100px !important;
@@ -76,7 +76,7 @@ body {
      }
 .filtros{
     margin-bottom: 10px; 
-    margin-left:45% ;    
+    margin-left:20% ;    
      }  
      table {
         padding: 0px 0px 0px 5%;
@@ -98,12 +98,12 @@ scroll{
 div#tablaDatos_filter {
     margin-top: -50px;
     position: absolute;
-    margin-left: 319px;
+    margin-left: 64px;
     color:#61CE70;
 }div#tablaDatos_length {
     margin-top: -50px;
     position: absolute;
-    margin-left: 100px;
+    margin-left: 1005px;
     color:#61CE70;
 }div#tablaDatos_info {
     visibility: collapse;
@@ -119,9 +119,9 @@ div#tablaDatos_filter {
 }a.page-link {
     color: white;
     text-decoration: none;
-    border: 1px solid #6EC1E4;
+    border: 1px solid #014F92;
     border-radius: 6px;
-    background: #6EC1E4;
+    background: #014F92;
     padding: 5px;
 }::marker {
     color: white;
@@ -139,12 +139,7 @@ div#tablaDatos_filter {
     margin-bottom: 17px;
     margin-left: 122px;
 }
-
-td {
-    margin-left: 42px;
-    /* width: 91%; */
-    /* margin-left: 63px; */
-}td.dt-checkboxes-cell {
+td.dt-checkboxes-cell {
     margin-left: 0px;
 }p {
     display: inline;
@@ -170,7 +165,7 @@ td {
     border: 1px solid #6EC1E4;
     border-radius: 6px;
     padding: 0px 3px;
-    background: #6EC1E4;
+    background: #d6d6d6;
 }button.editar {
     margin-right: 5px;
     color: white;
@@ -178,7 +173,7 @@ td {
     border: 1px solid #6EC1E4;
     border-radius: 6px;
     padding: 0px 3px;
-    background: #6EC1E4;
+    background: #d6d6d6;
 }
 button {
     color: white;
@@ -189,8 +184,6 @@ button {
     background: #6EC1E4;
 }.botones {
     display: inline-flex;
-}form {
-    margin-left: 4px;
 }dialog#modal {
     z-index: 10;
     margin-top: 308px;
@@ -201,9 +194,6 @@ button {
     margin-left: 83px;
  }div#Total_info {
     visibility: collapse;
-}td.sorting_1 {
-    margin-top: -64px;
-    margin-left: 1110px;
 }div#Total_length {
     visibility: collapse;
 }div#Total_filter {
@@ -227,7 +217,7 @@ button {
     }input.imagen3 {
         display: none;
         position: absolute;
-        margin-left: 880px;
+        margin-left: 860px;
         position: absolute;
         margin-top: -49px;
 
@@ -243,16 +233,42 @@ button {
         visibility: collapse;
     }h3 {
         color: #014F92;
-    }input#seleccionado2 {
-        position: absolute;
-        visibility: collapse;
+    }td {
+        color: black;
+    }th:nth-child(5) {
+        width: 459px !important;
+    }td:nth-child(5) {
+        width: 480px;
+        text-align: justify;
+    }table#tablaDatos {
+        margin-bottom: 57px;
+    }input#imagen5 {
+        width: 15px;
+    }table#Total {
+        margin-left: 962px;
+        margin-top: -65px;
+    }td {
+        border: 1px solid white;
+    }table#tablaDatos {
+        background: #C6C6C6;
+    }td:nth-child(6) {
+        width: 190px;
+    }dialog#modal2 {
+        margin-top: 368px;
     }input#imagen4 {
-        display: none;
-        margin-left: 997px;
+        width: 30px;
+    }form.rolback {
+        margin-top: -48px;
         position: absolute;
-        margin-top: -70px;
-        width: 37px;
-    }input#caja6 {
+    }input#fechaTabla2 {
         visibility: collapse;
         position: absolute;
+    }dialog#modal2 {
+        border: none;
+        box-shadow: 10px 10px 10px grey;
+    }dialog#modal2 p {
+        margin-left: 404px;
+    }dialog#modal{
+        border: none;
+        box-shadow: 10px 10px 10px grey;
     }
